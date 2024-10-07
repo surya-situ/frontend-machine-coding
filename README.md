@@ -1,6 +1,6 @@
 # Getting Started React machine coding 
 
-This repository is consists of from basic react machine coding projects to advance machine coding projects
+This repository is consists of frontend machine coding projects to advance machine coding projects
 
 # Make sure you machine have already node installed
 
