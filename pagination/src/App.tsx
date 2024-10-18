@@ -38,6 +38,18 @@ function App() {
     setPage(newPage)
   };
 
+  const prevPageHandler = () => {
+    if(page > 1) {
+      setPage(page - 1)
+    }
+  }
+
+  const nextPageHandler = () => {
+    if( page < Math.ceil(products.length / itemsPerPage)) {
+      setPage(page + 1)
+    }
+  }
+
   return (
     <div className='font-mono m-10'>
      {
@@ -60,13 +72,26 @@ function App() {
       <div className="flex justify-center">
           {
             products.length > 0 && <div>
-              <button disabled={page == 1} className="bg-slate-300 p-2 mx-2 rounded-md"> &lt; </button>
+              <button 
+                disabled={page == 1} 
+                className="bg-slate-300 p-2 mx-2 rounded-md"
+                onClick={prevPageHandler}
+              > 
+                &lt; 
+              </button>
+
               {
                 [...Array(Math.ceil(products.length / itemsPerPage))].map((_, i) => {
                   return <button onClick={() => selectedPageHandler(i + 1)} className="bg-slate-300 p-2 mx-2 rounded-md" key={i}>{i + 1}</button>
                 })
               }
-              <button className="bg-slate-300 p-2 mx-2 rounded-md"> &gt; </button>
+
+              <button 
+                className="bg-slate-300 p-2 mx-2 rounded-md"
+                onClick={nextPageHandler}
+              > 
+                &gt; 
+              </button>
             </div>
           }
         </div>
